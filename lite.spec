@@ -67,8 +67,6 @@ applications which will use LiTE.
 %setup -q -n %Name-%version
 
 %build
-./autogen.sh
-
 %configure2_5x
 %make
 
