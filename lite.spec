@@ -1,8 +1,8 @@
 
 %define name	lite
 %define Name	LiTE
-%define version	0.7.2
-%define rel	2
+%define version	0.8.3
+%define rel	1
 
 %define libname_orig lib%{name}
 %define libmajor 2
@@ -98,7 +98,7 @@ rm -rf %{buildroot}
 
 %files -n %{libname}
 %defattr(-,root,root)
-%{_libdir}/*.so.*
+%{_libdir}/*.so.%{libmajor}*
 
 %files -n %{libnamedevel}
 %defattr(-,root,root)
