@@ -25,6 +25,7 @@ LiTE is a Toolkit Engine for DirectFB.
 
 %package common
 Summary:	Images and fonts for LiTE
+Requires:	fonts-ttf-vera
 Group:		Graphical desktop/Other
 
 %description common
@@ -67,13 +68,19 @@ applications which will use LiTE.
 %setup -q -n %Name-%version
 
 %build
-%configure2_5x
+%configure2_5x --with-fontdir=%{_datadir}/%{Name}/fonts
 %make
 
 %install
 rm -rf %{buildroot}
 
 %makeinstall_std
+
+rm %{_datadir}/%{Name}/fonts/vera{,bd,bi,i}.ttf
+ln -s %{_datadir}/fonts/TTF/Vera.ttf %{_datadir}/%{Name}/fonts/vera.ttf
+ln -s %{_datadir}/fonts/TTF/VeraBd.ttf %{_datadir}/%{Name}/fonts/verabd.ttf
+ln -s %{_datadir}/fonts/TTF/VeraBI.ttf %{_datadir}/%{Name}/fonts/verabi.ttf
+ln -s %{_datadir}/fonts/TTF/VeraIt.ttf %{_datadir}/%{Name}/fonts/verai.ttf
 
 %clean
 rm -rf %{buildroot}
@@ -85,9 +92,6 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %doc AUTHORS NEWS README TODO COPYING ChangeLog
 %{_datadir}/LiTE
-%{_datadir}/fonts/truetype/Misc-Fixed.pfa
-%{_datadir}/fonts/truetype/decker.ttf
-%{_datadir}/fonts/truetype/whiterabbit.ttf
 
 %files tools
 %defattr(-,root,root)
@@ -104,5 +108,4 @@ rm -rf %{buildroot}
 %{_libdir}/*.la
 %{_libdir}/pkgconfig/lite.pc
 %{_includedir}/lite
-
 
