@@ -76,11 +76,11 @@ rm -rf %{buildroot}
 
 %makeinstall_std
 
-rm %{_datadir}/%{Name}/fonts/vera{,bd,bi,i}.ttf
-ln -s %{_datadir}/fonts/TTF/Vera.ttf %{_datadir}/%{Name}/fonts/vera.ttf
-ln -s %{_datadir}/fonts/TTF/VeraBd.ttf %{_datadir}/%{Name}/fonts/verabd.ttf
-ln -s %{_datadir}/fonts/TTF/VeraBI.ttf %{_datadir}/%{Name}/fonts/verabi.ttf
-ln -s %{_datadir}/fonts/TTF/VeraIt.ttf %{_datadir}/%{Name}/fonts/verai.ttf
+rm %{buildroot}%{_datadir}/%{Name}/fonts/vera{,bd,bi,i}.ttf
+ln -s %{_datadir}/fonts/TTF/Vera.ttf %{buildroot}%{_datadir}/%{Name}/fonts/vera.ttf
+ln -s %{_datadir}/fonts/TTF/VeraBd.ttf %{buildroot}%{_datadir}/%{Name}/fonts/verabd.ttf
+ln -s %{_datadir}/fonts/TTF/VeraBI.ttf %{buildroot}%{_datadir}/%{Name}/fonts/verabi.ttf
+ln -s %{_datadir}/fonts/TTF/VeraIt.ttf %{buildroot}%{_datadir}/%{Name}/fonts/verai.ttf
 
 %clean
 rm -rf %{buildroot}
