@@ -1,13 +1,13 @@
 
 %define name	lite
 %define Name	LiTE
-%define version	0.8.3
+%define version	0.8.6
 %define rel	1
 
 %define libname_orig lib%{name}
-%define libmajor 2
+%define libmajor 3
 %define libname %mklibname %{name} %{libmajor}
-%define libnamedevel %mklibname %{name} %{libmajor} -d
+%define libnamedevel %mklibname %{name} -d
 
 Name:		%{name}
 Summary:	LiTE is a Toolkit Engine
@@ -15,7 +15,7 @@ Version:	%version
 Release:	%mkrel %rel
 URL:		http://www.directfb.org/
 Group:		System/Libraries
-Source0:	http://www.directfb.org/downloads/Libs/%{Name}-%{version}.tar.bz2
+Source0:	http://www.directfb.org/downloads/Libs/%{Name}-%{version}.tar.gz
 License:	LGPL
 BuildRequires:	directfb-devel pkgconfig automake
 
@@ -56,6 +56,7 @@ Group:		Development/C
 Requires:	%{libname} = %{version}
 Provides:	%{libname_orig}-devel = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
+Obsoletes:	%{_lib}lite2-devel < 0.8.6
 Requires:	pkgconfig
 
 %description -n %{libnamedevel}
