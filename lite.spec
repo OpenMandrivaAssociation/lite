@@ -2,7 +2,7 @@
 %define name	lite
 %define Name	LiTE
 %define version	0.8.6
-%define rel	1
+%define rel	2
 
 %define libname_orig lib%{name}
 %define libmajor 3
@@ -43,7 +43,7 @@ This package contains literun and dfbspy.
 Summary:	Main library for LiTE
 Group:		System/Libraries
 Provides:	%{name} = %{version}-%{release}
-Requires:	%{name}-common = %{version}
+Requires:	%{name}-common >= %{version}
 
 %description -n %{libname}
 LiTE is a Toolkit Engine for DirectFB.
