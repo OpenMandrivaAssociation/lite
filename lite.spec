@@ -18,6 +18,7 @@ Group:		System/Libraries
 Source0:	http://www.directfb.org/downloads/Libs/%{Name}-%{version}.tar.gz
 License:	LGPL
 BuildRequires:	directfb-devel pkgconfig automake
+BuildRoot:	%{_tmppath}/%{name}-root
 
 %description
 LiTE is a Toolkit Engine for DirectFB.
