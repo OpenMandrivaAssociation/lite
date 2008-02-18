@@ -10,7 +10,7 @@
 %define libnamedevel %mklibname %{name} -d
 
 Name:		%{name}
-Summary:	LiTE is a Toolkit Engine
+Summary:	Toolkit Engine
 Version:	%version
 Release:	%mkrel %rel
 URL:		http://www.directfb.org/
