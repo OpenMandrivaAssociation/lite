@@ -2,7 +2,7 @@
 %define name	lite
 %define Name	LiTE
 %define version	0.8.6
-%define rel	2
+%define rel	3
 
 %define libname_orig lib%{name}
 %define libmajor 3
@@ -16,7 +16,7 @@ Release:	%mkrel %rel
 URL:		http://www.directfb.org/
 Group:		System/Libraries
 Source0:	http://www.directfb.org/downloads/Libs/%{Name}-%{version}.tar.gz
-License:	LGPL
+License:	LGPLv2+
 BuildRequires:	directfb-devel pkgconfig automake
 BuildRoot:	%{_tmppath}/%{name}-root
 
