@@ -1,12 +1,13 @@
 
 %define name	lite
 %define Name	LiTE
-%define version	0.8.6
-%define rel	3
+%define version	0.8.10
+%define rel	1
 
 %define libname_orig lib%{name}
 %define libmajor 3
 %define libname %mklibname %{name} %{libmajor}
+%define lecklibname %mklibname leck %{libmajor}
 %define libnamedevel %mklibname %{name} -d
 
 Name:		%{name}
@@ -33,12 +34,12 @@ LiTE is a Toolkit Engine for DirectFB.
 This package contains the images and fonts needed by LiTE.
 
 %package tools
-Summary:	LiTE tools
+Summary:	LiTE tools and examples
 Group:		Graphical desktop/Other
 
 %description tools
 LiTE is a Toolkit Engine for DirectFB.
-This package contains literun and dfbspy.
+This package contains example tools for LiTE.
 
 %package -n %{libname}
 Summary:	Main library for LiTE
@@ -51,12 +52,21 @@ LiTE is a Toolkit Engine for DirectFB.
 This package contains the library needed to run programs dynamically
 linked with LiTE.
 
+%package -n %{lecklibname}
+Summary:	LiTE's extended Component Kit
+Group:		System/Libraries
+
+%description -n %{lecklibname}
+LiTE is a Toolkit Engine for DirectFB. This package contains
+LiTE's extended Component Kit.
+
 %package -n %{libnamedevel}
 Summary:	Headers for developing programs that will use LiTE
 Group:		Development/C
 Requires:	%{libname} = %{version}
 Provides:	%{libname_orig}-devel = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
+Provides:	leck-devel = %{version}-%{release}
 Obsoletes:	%{_lib}lite2-devel < 0.8.6
 Requires:	pkgconfig
 
@@ -86,13 +96,6 @@ ln -s %{_datadir}/fonts/TTF/VeraIt.ttf %{buildroot}%{_datadir}/%{Name}/fonts/ver
 %clean
 rm -rf %{buildroot}
 
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
-
 %files common
 %defattr(-,root,root)
 %doc AUTHORS NEWS README TODO COPYING ChangeLog
@@ -100,17 +103,23 @@ rm -rf %{buildroot}
 
 %files tools
 %defattr(-,root,root)
-%{_bindir}/dfbspy
-%{_bindir}/literun
+%{_bindir}/lite_*
 
 %files -n %{libname}
 %defattr(-,root,root)
-%{_libdir}/*.so.%{libmajor}*
+%{_libdir}/liblite.so.%{libmajor}*
+
+%files -n %{lecklibname}
+%defattr(-,root,root)
+%{_libdir}/libleck.so.%{libmajor}*
 
 %files -n %{libnamedevel}
 %defattr(-,root,root)
-%{_libdir}/*.so
+%{_libdir}/liblite.so
+%{_libdir}/libleck.so
 %{_libdir}/*.la
 %{_libdir}/pkgconfig/lite.pc
+%{_libdir}/pkgconfig/leck.pc
 %{_includedir}/lite
+%{_includedir}/leck
 
