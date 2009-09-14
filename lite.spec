@@ -2,7 +2,7 @@
 %define name	lite
 %define Name	LiTE
 %define version	0.8.10
-%define rel	1
+%define rel	2
 
 %define libname_orig lib%{name}
 %define libmajor 3
