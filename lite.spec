@@ -2,7 +2,7 @@
 %define name	lite
 %define Name	LiTE
 %define version	0.8.10
-%define rel	5
+%define rel	6
 
 %define libname_orig lib%{name}
 %define libmajor 3
@@ -64,6 +64,7 @@ LiTE's extended Component Kit.
 Summary:	Headers for developing programs that will use LiTE
 Group:		Development/C
 Requires:	%{libname} = %{version}
+Requires:	%{lecklibname} = %{version}
 Provides:	%{libname_orig}-devel = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 Provides:	leck-devel = %{version}-%{release}
