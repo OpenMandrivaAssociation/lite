@@ -1,11 +1,11 @@
 
 %define name	lite
 %define Name	LiTE
-%define version	0.8.10
-%define rel	6
+%define version	0.9.1_svn
+%define rel	1
 
 %define libname_orig lib%{name}
-%define libmajor 3
+%define libmajor 1
 %define libname %mklibname %{name} %{libmajor}
 %define lecklibname %mklibname leck %{libmajor}
 %define libnamedevel %mklibname %{name} -d
@@ -13,13 +13,18 @@
 Name:		%{name}
 Summary:	Toolkit Engine
 Version:	%version
-Release:	%mkrel %rel
+Release:	%rel
 URL:		http://www.directfb.org/
 Group:		System/Libraries
-Source0:	http://www.directfb.org/downloads/Libs/%{Name}-%{version}.tar.gz
+Source0:	http://www.directfb.org/downloads/Libs/%{Name}-0.9.1.tar.gz
 License:	LGPLv2+
-BuildRequires:	directfb-devel pkgconfig automake
-BuildRoot:	%{_tmppath}/%{name}-root
+BuildRequires:	directfb-devel 
+BuildRequires:	pkgconfig 
+BuildRequires:	automake
+BuildRequires:	autoconf
+BuildRequires:	libtool
+
+
 
 %description
 LiTE is a Toolkit Engine for DirectFB.
@@ -77,15 +82,14 @@ This package contains the headers that programmers will need to develop
 applications which will use LiTE.
 
 %prep
-%setup -q -n %Name-%version
+%setup -q -n %Name-0.9.1
 
 %build
+./autogen.sh
 %configure2_5x --with-fontdir=%{_datadir}/%{Name}/fonts
 %make
 
 %install
-rm -rf %{buildroot}
-
 %makeinstall_std
 
 rm %{buildroot}%{_datadir}/%{Name}/fonts/vera{,bd,bi,i}.ttf
@@ -94,33 +98,34 @@ ln -s %{_datadir}/fonts/TTF/VeraBd.ttf %{buildroot}%{_datadir}/%{Name}/fonts/ver
 ln -s %{_datadir}/fonts/TTF/VeraBI.ttf %{buildroot}%{_datadir}/%{Name}/fonts/verabi.ttf
 ln -s %{_datadir}/fonts/TTF/VeraIt.ttf %{buildroot}%{_datadir}/%{Name}/fonts/verai.ttf
 
-%clean
-rm -rf %{buildroot}
 
 %files common
-%defattr(-,root,root)
 %doc AUTHORS NEWS README TODO COPYING ChangeLog
 %{_datadir}/LiTE
 
 %files tools
-%defattr(-,root,root)
+%doc AUTHORS NEWS README TODO COPYING ChangeLog
 %{_bindir}/lite_*
 
+
 %files -n %{libname}
-%defattr(-,root,root)
-%{_libdir}/liblite.so.%{libmajor}*
+%doc AUTHORS NEWS README TODO COPYING ChangeLog
+%{_libdir}/liblite-0.9.so.%{libmajor}*
+
+
 
 %files -n %{lecklibname}
-%defattr(-,root,root)
-%{_libdir}/libleck.so.%{libmajor}*
+%doc AUTHORS NEWS README TODO COPYING ChangeLog
+%{_libdir}/libleck-0.9.so.%{libmajor}*
 
 %files -n %{libnamedevel}
-%defattr(-,root,root)
+%doc AUTHORS NEWS README TODO COPYING ChangeLog
 %{_libdir}/liblite.so
 %{_libdir}/libleck.so
-%{_libdir}/*.la
 %{_libdir}/pkgconfig/lite.pc
 %{_libdir}/pkgconfig/leck.pc
 %{_includedir}/lite
 %{_includedir}/leck
+
+
 
