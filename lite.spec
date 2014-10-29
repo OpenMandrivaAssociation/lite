@@ -4,7 +4,7 @@
 %define version	0.9.1_svn
 %define rel	1
 
-%define libname_orig %{_lib}%{name}
+%define libname_orig lib%{name}
 %define libmajor 1
 %define libname %mklibname %{name} %{libmajor}
 %define lecklibname %mklibname leck %{libmajor}
@@ -120,8 +120,8 @@ ln -s %{_datadir}/fonts/TTF/VeraIt.ttf %{buildroot}%{_datadir}/%{Name}/fonts/ver
 
 %files -n %{libnamedevel}
 %doc AUTHORS NEWS README TODO COPYING ChangeLog
-%{_libdir}/%{_lib}lite.so
-%{_libdir}/%{_lib}leck.so
+%{_libdir}/%{_lib}lite*.so*
+%{_libdir}/%{_lib}leck*.so*
 %{_libdir}/pkgconfig/lite.pc
 %{_libdir}/pkgconfig/leck.pc
 %{_includedir}/lite
