@@ -120,8 +120,10 @@ ln -s %{_datadir}/fonts/TTF/VeraIt.ttf %{buildroot}%{_datadir}/%{Name}/fonts/ver
 
 %files -n %{libnamedevel}
 %doc AUTHORS NEWS README TODO COPYING ChangeLog
-%{_libdir}/%{_lib}lite*.so*
-%{_libdir}/%{_lib}leck*.so*
+%{_libdir}/liblite-0.9.so.1*
+%{_libdir}/liblite.so
+%{_libdir}/libleck-0.9.so.1*
+%{_libdir}/libleck.so
 %{_libdir}/pkgconfig/lite.pc
 %{_libdir}/pkgconfig/leck.pc
 %{_includedir}/lite
