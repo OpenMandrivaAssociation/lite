@@ -4,7 +4,7 @@
 %define version	0.9.1_svn
 %define rel	1
 
-%define libname_orig lib%{name}
+%define libname_orig %{_lib}%{name}
 %define libmajor 1
 %define libname %mklibname %{name} %{libmajor}
 %define lecklibname %mklibname leck %{libmajor}
