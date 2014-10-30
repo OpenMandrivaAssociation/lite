@@ -3,7 +3,7 @@
 %define Name	LiTE
 %define version	0.9.1_svn
 %define rel	1
-
+%define api 0.9
 %define libname_orig lib%{name}
 %define libmajor 1
 %define libname %mklibname %{name} %{libmajor}
@@ -110,21 +110,20 @@ ln -s %{_datadir}/fonts/TTF/VeraIt.ttf %{buildroot}%{_datadir}/%{Name}/fonts/ver
 
 %files -n %{libname}
 %doc AUTHORS NEWS README TODO COPYING ChangeLog
-%{_libdir}/liblite-0.9.so.%{libmajor}.0.0
-
+%{_libdir}/liblite-%{api}.so.%{libmajor}.0.0
 
 
 %files -n %{lecklibname}
 %doc AUTHORS NEWS README TODO COPYING ChangeLog
-%{_libdir}/libleck-0.9.so.%{libmajor}.0.0
+%{_libdir}/libleck-%{api}.so.%{libmajor}.0.0
 
 %files -n %{libnamedevel}
 %doc AUTHORS NEWS README TODO COPYING ChangeLog
-%{_libdir}/liblite-0.9.so.1
-%{_libdir}/liblite-0.9.so.1.0.0
+%{_libdir}/liblite-%{api}.so.%{libmajor}
+%{_libdir}/liblite-%{api}.so.%{libmajor}.0.0
 %{_libdir}/liblite.so
-%{_libdir}/libleck-0.9.so.1
-%{_libdir}/libleck-0.9.so.1.0.0
+%{_libdir}/libleck-%{api}.so.%{libmajor}
+%{_libdir}/libleck-%{api}.so.%{libmajor}.0.0
 %{_libdir}/libleck.so
 %{_libdir}/pkgconfig/lite.pc
 %{_libdir}/pkgconfig/leck.pc
