@@ -116,7 +116,7 @@ ln -s %{_datadir}/fonts/TTF/VeraIt.ttf %{buildroot}%{_datadir}/%{Name}/fonts/ver
 
 %files -n %{lecklibname}
 %doc AUTHORS NEWS README TODO COPYING ChangeLog
-%{_libdir}/%{_lib}leck-0.9.so.%{libmajor}*
+%{_libdir}/%{_lib}leck-0.9.so.%{libmajor}
 
 %files -n %{libnamedevel}
 %doc AUTHORS NEWS README TODO COPYING ChangeLog
