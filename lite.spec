@@ -2,7 +2,7 @@
 %define name	lite
 %define Name	LiTE
 %define version	0.9.1_svn
-%define rel	1
+%define rel	2
 %define api 0.9
 %define libname_orig lib%{name}
 %define libmajor 1
