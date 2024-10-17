@@ -14,7 +14,7 @@ Name:		%{name}
 Summary:	Toolkit Engine
 Version:	%version
 Release:	%rel
-URL:		http://www.directfb.org/
+URL:		https://www.directfb.org/
 Group:		System/Libraries
 Source0:	http://www.directfb.org/downloads/Libs/%{Name}-0.9.1.tar.gz
 License:	LGPLv2+
