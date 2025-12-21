@@ -18,6 +18,8 @@ URL:		https://www.directfb.org/
 Group:		System/Libraries
 Source0:	http://www.directfb.org/downloads/Libs/%{Name}-0.9.1.tar.gz
 License:	LGPLv2+
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
 BuildRequires:	directfb-devel 
 BuildRequires:	pkgconfig 
 BuildRequires:	automake
